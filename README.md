@@ -4,33 +4,39 @@
 
 ## Установка
 
+### Через pip
+1. Установите пакет:
+   ```bash
+   pip install git+https://github.com/cubetitled-ui/BeautifulTerminalProject.git
+   ```
+2. Запустите:
+   ```bash
+   beautiful-terminal
+   ```
+
+### Локально
 1. Клонируйте репозиторий:
    ```bash
    git clone https://github.com/cubetitled-ui/BeautifulTerminalProject.git
    ```
-
 2. Установите зависимости:
    ```bash
-   pip install rich pyfiglet colorama
+   pip install -r requirements.txt
    ```
-
 3. Запустите:
    ```bash
-   python main.py
+   python -m beautiful_terminal.main
    ```
 
 ## Возможности
 - Красивые баннеры с использованием `pyfiglet`.
-- Цветной вывод с помощью `rich`.
+- Прогресс-бары и таймеры с `rich`.
+- Интерактивное меню.
 - Легко расширяемая структура.
 
 ## Пример
 ```python
-from rich.console import Console
-from pyfiglet import Figlet
+from beautiful_terminal.main import print_banner
 
-console = Console()
-f = Figlet(font='slant')
-
-console.print(f.renderText("Hello, World!"), style="bold green")
+print_banner("Hello, World!")
 ```
