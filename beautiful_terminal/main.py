@@ -7,6 +7,12 @@ from rich.align import Align
 from rich.text import Text
 from pyfiglet import Figlet
 import time
+from .ascii_art import demo_ascii_art, show_meme
+from .logger import log
+from .guess_game import guess_number
+from .quotes import random_quote
+from .system_monitor import system_info
+from .typewriter import typewriter
 
 console = Console()
 f = Figlet(font='slant')
@@ -45,10 +51,16 @@ def interactive_menu():
     table.add_row("1", "Запустить прогресс-бар")
     table.add_row("2", "Запустить таймер (10 секунд)")
     table.add_row("3", "Вывести баннер")
-    table.add_row("4", "Выход")
+    table.add_row("4", "ASCII-арт")
+    table.add_row("5", "Показать мем")
+    table.add_row("6", "Игра 'Угадай число'")
+    table.add_row("7", "Случайная цитата")
+    table.add_row("8", "Мониторинг системы")
+    table.add_row("9", "Эффект печатающегося текста")
+    table.add_row("10", "Выход")
 
     console.print(table)
-    choice = Prompt.ask("\nВыберите опцию", choices=["1", "2", "3", "4"], default="1")
+    choice = Prompt.ask("\nВыберите опцию", choices=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], default="1")
 
     if choice == "1":
         show_progress_bar()
@@ -56,6 +68,18 @@ def interactive_menu():
         countdown_timer(10)
     elif choice == "3":
         print_banner("Beautiful Terminal")
+    elif choice == "4":
+        demo_ascii_art()
+    elif choice == "5":
+        show_meme()
+    elif choice == "6":
+        guess_number()
+    elif choice == "7":
+        random_quote()
+    elif choice == "8":
+        system_info()
+    elif choice == "9":
+        typewriter("Привет, это эффект печатающегося текста!")
     else:
         console.print("[bold red]Выход...")
 
